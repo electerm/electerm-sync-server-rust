@@ -29,7 +29,7 @@ todo
 
 ## Write your own data store
 
-Just take [src/file-store.rs](src/file-store.jrs) as an example, write your own read/write method
+Just take [src/file-store.rs](src/file-store.rs) as an example, write your own read/write method
 
 ## License
 
