@@ -33,14 +33,3 @@ jobs:
       - run: cp sample.env .env
       - name: Test
         run: cargo test --verbose -- --test-threads=1
-
-      - name: Install cargo-tarpaulin
-        run: cargo install cargo-tarpaulin
-
-      - name: Generate coverage report
-        run: cargo tarpaulin --output Xml --output-dir coverage
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
