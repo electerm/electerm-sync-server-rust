@@ -153,7 +153,7 @@ mod tests {
     }
 
 
-    #[actix_rt::test]
+    // #[actix_rt::test]
     async fn test_write_endpoint() {
         dotenv().ok();
         // Create a test app
@@ -195,7 +195,7 @@ mod tests {
         // Add more assertions if needed
     }
 
-    #[actix_rt::test]
+
     async fn test_read_endpoint() {
         dotenv().ok();
         // Create a test app
@@ -234,6 +234,12 @@ mod tests {
         assert_eq!(response.status(), StatusCode::UNAUTHORIZED);
 
         // Add more assertions if needed
+    }
+
+    #[actix_rt::test]
+    async fn test_all () {
+        test_write_endpoint().await;
+        test_read_endpoint().await
     }
 }
 
