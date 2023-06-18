@@ -25,7 +25,9 @@ cargo run
 
 ## Test
 
-todo
+```sh
+cargo test -- --test-threads=1
+```
 
 ## Write your own data store
 
