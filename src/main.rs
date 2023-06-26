@@ -18,7 +18,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
           .wrap(Logger::default())
           .service(
-              web::resource("/sync")
+              web::resource("/api/sync")
                   .route(web::put().to(file_store::write))
                   .route(web::get().to(file_store::read))
           )
