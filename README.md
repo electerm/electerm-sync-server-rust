@@ -1,7 +1,6 @@
-# Rust Electerm sync server
+# Electerm sync server rust
 
-
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fatrox%2Fsync-dotenv%2Fbadge)](https://github.com/electerm/electerm-sync-server-rust/actions)
+[![Build Status](https://github.com/electerm/electerm-sync-server-rust/actions/workflows/linux.yml/badge.svg)](https://github.com/electerm/electerm-sync-server-rust/actions)
 
 A simple rust electerm data sync server.
 
