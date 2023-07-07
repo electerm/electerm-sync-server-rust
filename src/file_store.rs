@@ -117,6 +117,15 @@ pub async fn read (req: HttpRequest) -> HttpResponse {
 
     HttpResponse::Ok().json(json_data)
 }
+
+pub async fn test (req: HttpRequest) -> HttpResponse {
+    let user_id = match check_jwt(&req) {
+        Ok(_) => "test ok",
+        Err(resp) => return resp
+    };
+    HttpResponse::Ok().body(user_id)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
