@@ -251,6 +251,3 @@ mod tests {
         test_read_endpoint().await
     }
 }
-
-
-//can you write and function to create valid JWT Authorization  header, read jwt serect from env:JWT_SECRET, read user first id from env:JWT_USERS, JWT_USERS is id list seprated by "," the JWT data need to be encoded is { id: USER_ID_FROM_ENV, exp: 999 }
