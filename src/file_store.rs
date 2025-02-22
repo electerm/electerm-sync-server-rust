@@ -58,6 +58,11 @@ pub async fn read(req: HttpRequest) -> HttpResponse {
     }
 }
 
+pub async fn test(req: HttpRequest) -> HttpResponse {
+    let user_id = req.extensions().get::<String>().unwrap().clone();
+    HttpResponse::Ok().body(user_id)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

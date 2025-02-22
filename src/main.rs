@@ -27,7 +27,7 @@ async fn main() -> std::io::Result<()> {
                     .wrap(auth)
                     .route(web::put().to(file_store::write))
                     .route(web::get().to(file_store::read))
-                    .route(web::post().to(web_app::test))
+                    .route(web::post().to(file_store::test))
             )
             .service(web::resource("/test").route(web::get().to(web_app::test)))
     })
