@@ -28,6 +28,18 @@ cargo run
 # JWT_USER_NAME: .env 中的一个 JWT_USER
 ```
 
+## 生产运行
+
+`cargo run` 以调试模式运行服务器。对于生产部署：
+
+```bash
+# 构建优化的发布二进制文件
+cargo build --release
+
+# 运行生产二进制文件
+./target/release/electerm-sync-rust-server
+```
+
 ## 测试
 
 ```sh

@@ -30,6 +30,18 @@ cargo run
 # JWT_USER_NAME: one JWT_USER in .env
 ```
 
+## Production Run
+
+`cargo run` runs the server in debug mode. For production deployment:
+
+```bash
+# Build optimized release binary
+cargo build --release
+
+# Run the production binary
+./target/release/electerm-sync-rust-server
+```
+
 ## Test
 
 ```sh
