@@ -2,3 +2,4 @@
 /temp/
 /.env
 /*.json
+/*.db

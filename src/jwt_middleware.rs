@@ -28,22 +28,26 @@ pub async fn jwt_middleware(req: ServiceRequest, credentials: BearerAuth)
 }
 
 fn check_jwt(token: &str) -> Result<String, Error> {
-    let jwt_secret = env::var("JWT_SECRET").expect("JWT_SECRET not set");
+    let jwt_secret = env::var("JWT_SECRET")
+        .map_err(|_| ErrorUnauthorized("JWT_SECRET not configured"))?;
+    
     let decoding_key = DecodingKey::from_secret(jwt_secret.as_bytes());
-    let mut validation = Validation::default();
-    validation.algorithms = vec![Algorithm::HS256];
-    validation.validate_exp = false;
+    let mut validation = Validation::new(Algorithm::HS256);
+    // Enable expiration validation for security
+    validation.validate_exp = true;
 
     let token_data = decode::<Claims>(token, &decoding_key, &validation)
-        .map_err(|_| ErrorUnauthorized("invalid token"))?;
+        .map_err(|e| ErrorUnauthorized(format!("Invalid token: {}", e)))?;
 
-    let user_ids_str = env::var("JWT_USERS").expect("JWT_USERS not set");
-    let user_ids: Vec<&str> = user_ids_str.split(',').collect();
+    let user_ids_str = env::var("JWT_USERS")
+        .map_err(|_| ErrorUnauthorized("JWT_USERS not configured"))?;
+    
+    let user_ids: Vec<&str> = user_ids_str.split(',').map(|s| s.trim()).collect();
     let id = token_data.claims.id;
 
     if user_ids.contains(&id.as_str()) {
         Ok(id)
     } else {
-        Err(ErrorUnauthorized("invalid user"))
+        Err(ErrorUnauthorized("User not authorized"))
     }
 }

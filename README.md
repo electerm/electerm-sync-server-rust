@@ -1,3 +1,5 @@
+[中文版](readme_cn.md)
+
 # Electerm sync server rust
 
 [![Build Status](https://github.com/electerm/electerm-sync-server-rust/actions/workflows/linux.yml/badge.svg)](https://github.com/electerm/electerm-sync-server-rust/actions)
@@ -36,7 +38,7 @@ cargo test -- --test-threads=1
 
 ## Write your own data store
 
-Just take [src/file-store.rs](src/file-store.rs) as an example, write your own read/write method
+Just take [src/file_store.rs](src/file_store.rs) as an example, write your own read/write method
 
 ## Sync server in other languages
 
